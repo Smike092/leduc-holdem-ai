@@ -27,4 +27,43 @@ Implementation of intelligent agents (Q-Learning, CFR, Expectiminimax) to learn 
 
 1. **Clone the repo**:
    git clone https://github.com/your-username/leduc-holdem-ai-agents.git
+
    cd leduc-holdem-ai-agents
+   
+2. **Install RLCard**:
+    
+    pip install rlcard
+
+3. **Replace RLCard game engine** (only for Expectiminimax):
+    
+    cp game_expectimax.py YOUR_ENV_PATH/rlcard/games/leducholdem/game.py
+
+## 🚀 Running the Agents
+
+### Train Q-Learning agent:
+python main.py --algorithm qla --num_episodes 100000 --evaluate_every 5000
+
+### Train CFR agent:
+python main.py --algorithm cfr --num_episodes 100000 --evaluate_every 5000
+
+### Evaluate Expectiminimax:
+python main.py --algorithm expectiminimax --num_games 10000
+
+### HyperParameter Search:
+python main.py --algorithm V1 --num_episodes 20000
+
+
+📈 Results
+
+Agents were tested against 3 profiles:
+
+    Random: Chooses actions uniformly
+
+    Aggressive: Prefers raising
+
+    Cautious: Only plays top-ranked hands
+
+Performance was measured as average number of big blinds won.
+
+    📊 Example result plot is saved in experiments/expectiminimax.png
+    
